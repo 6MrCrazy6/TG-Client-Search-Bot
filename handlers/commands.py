@@ -1,6 +1,7 @@
 from aiogram import types
 from services.order_service import OrderService
 
+
 class CommandHandlers:
     """Класс Telegram-команд, зависящий от бизнес-логики, а не от деталей"""
 
@@ -9,11 +10,15 @@ class CommandHandlers:
 
     async def search(self, message: types.Message):
         await message.answer("🔍 Шукаю нові замовлення по ремонту в Києві...")
+
         try:
-            orders = self.service.fetch_and_save_orders()
+            # ✅ вызываем асинхронно
+            orders = await self.service.fetch_and_save_orders()
+
             if not orders:
                 await message.answer("❌ Нових замовлень не знайдено.")
                 return
+
             for o in orders[:10]:
                 msg = (
                     f"🆕 <b>{o['title']}</b>\n"
@@ -22,5 +27,6 @@ class CommandHandlers:
                     f"🔗 {o['url']}"
                 )
                 await message.answer(msg, parse_mode="HTML")
+
         except Exception as e:
             await message.answer(f"⚠️ Помилка: {e}")

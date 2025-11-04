@@ -8,5 +8,5 @@ load_dotenv('Keys/data_keys.env')
 class Config:
     """Хранилище всех настроек проекта"""
     BOT_TOKEN: str = os.getenv("BOT_TOKEN")
-    DB_URL: str = os.getenv("DB_URL")
+    DB_URL: str = os.getenv("DATABASE_PUBLIC_URL")
     ADMIN_ID: int = int(os.getenv("ADMIN_ID", 0))
