@@ -10,7 +10,6 @@ from webdriver_manager.chrome import ChromeDriverManager
 from config import Config
 from database import Database
 
-
 def parse_budver_kyiv_repairs(limit: int = 10):
     """
     Финальная версия:

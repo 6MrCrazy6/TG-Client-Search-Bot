@@ -2,11 +2,10 @@ import os
 from aiogram import types
 from aiogram.types import FSInputFile
 from services.order_service import OrderService
-from asyncio import to_thread
 
 
 class CommandHandlers:
-    """Телеграм-команди для роботи з замовленнями Budver"""
+    """Телеграм-команди для роботи з замовленнями Budver + Rabotniki"""
 
     def __init__(self, order_service: OrderService):
         self.service = order_service
@@ -28,54 +27,71 @@ class CommandHandlers:
         await message.answer(f"🔍 Шукаю {limit} нових замовлень по ремонту в Києві...")
 
         try:
-            orders = await self.service.fetch_and_save_orders_with_limit(limit)
+            # 🔹 Отримуємо з двох сайтів одразу
+            results = await self.service.fetch_all_sites(limit)
 
-            if not orders:
-                await message.answer("❌ Нових замовлень не знайдено.")
-                return
+            budver_orders = results["budver"]
+            rabotniki_orders = results["rabotniki"]
 
-            total = len(orders)
-            show_limit = min(2, total)
-            shown_orders = orders[:show_limit]
-            saved_to_db = total - show_limit if total > show_limit else 0
+            total_found = len(budver_orders) + len(rabotniki_orders)
+            msg = f"📢 <b>Знайдено {total_found} нових замовлень!</b>\n\n"
 
-            msg = f"📢 <b>На Budver знайдено {total} нових замовлень!</b>\n"
-            msg += "Ось кілька останніх прикладів:\n\n"
+            # ======= 🏗 Budver =======
+            msg += f"🏗 <b>Budver:</b> {len(budver_orders)} знайдено.\n"
+            if budver_orders:
+                show_b = min(2, len(budver_orders))
+                for o in budver_orders[:show_b]:
+                    msg += (
+                        f"🆕 <b>{o['title']}</b>\n"
+                        f"🏙️ {o['city']}\n"
+                        f"💰 {o['price']}\n"
+                        f"📝 {o['desc'][:200]}...\n"
+                        f"🔗 <a href='{o['url']}'>Відкрити завдання</a>\n\n"
+                    )
+                if len(budver_orders) > show_b:
+                    msg += f"💾 Ще {len(budver_orders) - show_b} додано у базу.\n\n"
+            else:
+                msg += "❌ Нових немає.\n\n"
 
-            for o in shown_orders:
-                msg += (
-                    f"🆕 <b>{o['title']}</b>\n"
-                    f"🏙️ {o['city']}\n"
-                    f"💰 {o['price']}\n"
-                    f"📝 {o['desc'][:250]}...\n"
-                    f"🔗 <a href='{o['url']}'>Відкрити завдання</a>\n\n"
-                )
+            # ======= 🧱 Rabotniki =======
+            msg += f"🧱 <b>Rabotniki.ua:</b> {len(rabotniki_orders)} знайдено.\n"
+            if rabotniki_orders:
+                show_r = min(2, len(rabotniki_orders))
+                for o in rabotniki_orders[:show_r]:
+                    msg += (
+                        f"🆕 <b>{o['title']}</b>\n"
+                        f"🏙️ {o['city']}\n"
+                        f"💰 {o['price']}\n"
+                        f"📝 {o['desc'][:200]}...\n"
+                        f"🔗 <a href='{o['url']}'>Відкрити завдання</a>\n\n"
+                    )
+                if len(rabotniki_orders) > show_r:
+                    msg += f"💾 Ще {len(rabotniki_orders) - show_r} додано у базу.\n\n"
+            else:
+                msg += "❌ Нових немає.\n\n"
 
-            if saved_to_db > 0:
-                msg += (
-                    f"💾 Ще {saved_to_db} замовлень збережено у базу даних.\n"
-                    f"📊 Отримати повний список у вигляді Excel-файлу можна командою <b>/export</b>."
-                )
-
+            msg += "📊 Отримати повний список у вигляді Excel-файлу — команда <b>/export</b>."
             await message.answer(msg, parse_mode="HTML", disable_web_page_preview=True)
 
         except Exception as e:
             await message.answer(f"⚠️ Помилка: {e}")
 
-        except Exception as e:
-            await message.answer(f"⚠️ Помилка: {e}")
-
     async def export(self, message: types.Message):
-        """Формує, надсилає Excel-файл і одразу видаляє його"""
+        """Формирует, отправляет Excel-файл и сразу удаляет его после отправки"""
         try:
+            # Генерация файла
             path = self.service.export_orders_to_excel()
+
+            # Открываем файл для отправки
             doc = FSInputFile(path, filename="orders_export.xlsx")
 
-            await message.answer_document(document=doc, caption="📊 Повний звіт про замовлення Budver")
+            # Отправляем файл
+            await message.answer_document(document=doc, caption="📊 Повний звіт про замовлення")
 
+            # После отправки удаляем файл
             if os.path.exists(path):
                 os.remove(path)
-                print(f"🗑️ Файл {path} видалено після відправлення")
+                print(f"🗑️ Файл {path} удалён после отправки")
 
         except Exception as e:
-            await message.answer(f"⚠️ Помилка при експорті: {e}")
+            await message.answer(f"⚠️ Ошибка при экспорте: {e}")

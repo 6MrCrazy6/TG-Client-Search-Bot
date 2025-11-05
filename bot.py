@@ -30,4 +30,5 @@ async def main():
 
 if __name__ == "__main__":
     #db.drop_table("orders_budver")
+    #db.drop_table("orders_rabotniki")
     asyncio.run(main())
