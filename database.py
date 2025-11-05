@@ -53,3 +53,9 @@ class Database:
             # закрываем соединение, чтобы не зависло при ошибке
             if not self.conn.closed:
                 self.conn.close()
+
+    def check_exists(self, url: str) -> bool:
+        """Проверяет, есть ли заказ с таким URL в базе"""
+        with self.conn.cursor() as cur:
+            cur.execute("SELECT 1 FROM orders_budver WHERE url = %s;", (url,))
+            return bool(cur.fetchone())

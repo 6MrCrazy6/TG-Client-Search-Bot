@@ -19,8 +19,8 @@ commands = CommandHandlers(service)
 
 
 def register_handlers():
-    dp.message.register(commands.search, F.text == '/search')
-
+    dp.message.register(commands.search, F.text.startswith('/search'))
+    dp.message.register(commands.export, F.text == '/export')
 
 async def main():
     register_handlers()
@@ -29,4 +29,5 @@ async def main():
 
 
 if __name__ == "__main__":
+    #db.drop_table("orders_budver")
     asyncio.run(main())
