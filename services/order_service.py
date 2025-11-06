@@ -5,7 +5,6 @@ from database import Database
 from parsers.budver_parser import parse_budver_kyiv_repairs
 from parsers.rabotniki_parser import parse_rabotniki_search
 
-
 class OrderService:
     def __init__(self, db: Database):
         self.db = db
