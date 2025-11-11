@@ -19,8 +19,12 @@ commands = CommandHandlers(service)
 
 
 def register_handlers():
+    dp.message.register(commands.start, F.text == '/start')
+    dp.message.register(commands.help, F.text == '/help')
     dp.message.register(commands.search, F.text.startswith('/search'))
     dp.message.register(commands.export, F.text == '/export')
+    dp.message.register(commands.clear_all, F.text == '/clear_all')
+    dp.message.register(commands.stats, F.text == '/stats')
 
 async def main():
     register_handlers()

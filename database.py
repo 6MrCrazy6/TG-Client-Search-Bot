@@ -3,23 +3,22 @@ from config import Config
 
 
 class Database:
-    """Класс, инкапсулирующий работу с PostgreSQL"""
+    """Клас для роботи з PostgreSQL (Budver, Rabotniki, Kabanchik)"""
 
     def __init__(self, cfg: Config):
         self.cfg = cfg
         self.conn = psycopg2.connect(self.cfg.DB_URL)
         self.create_all_tables()
 
-    # ───────────────────────────────────────────────
-    # 🗂️ Автоматическое создание всех нужных таблиц
-    # ───────────────────────────────────────────────
+    # ────────────────────────────────
+    # 🗂️ Автоматичне створення таблиць
+    # ────────────────────────────────
     def create_all_tables(self):
-        """Создаёт все необходимые таблицы, если их нет"""
         self.create_orders_budver_table()
         self.create_orders_rabotniki_table()
+        self.create_orders_kabanchik_table()
 
     def create_orders_budver_table(self):
-        """Создаёт таблицу заказов Budver, если её нет"""
         with self.conn.cursor() as cur:
             cur.execute("""
                 CREATE TABLE IF NOT EXISTS orders_budver (
@@ -49,48 +48,75 @@ class Database:
             """)
         self.conn.commit()
 
-    # ───────────────────────────────────────────────
-    # 🧩 Базовые CRUD методы
-    # ───────────────────────────────────────────────
+    def create_orders_kabanchik_table(self):
+        with self.conn.cursor() as cur:
+            cur.execute("""
+                CREATE TABLE IF NOT EXISTS orders_kabanchik (
+                    id SERIAL PRIMARY KEY,
+                    title TEXT,
+                    description TEXT,
+                    city TEXT,
+                    price TEXT,
+                    url TEXT UNIQUE,
+                    created_at TIMESTAMP DEFAULT NOW()
+                );
+            """)
+        self.conn.commit()
+
+    # ────────────────────────────────
+    # 🧩 Збереження замовлень
+    # ────────────────────────────────
     def save_order(self, title, description, city, price, url, source="budver"):
-        """Добавляет заказ в соответствующую таблицу, если его ещё нет"""
-        table = "orders_budver" if source == "budver" else "orders_rabotniki"
+        if not url:
+            print(f"⚠️ Пропуск запису — відсутній URL ({source})")
+            return
+
+        table_map = {
+            "budver": "orders_budver",
+            "rabotniki": "orders_rabotniki",
+            "kabanchik": "orders_kabanchik"
+        }
+        table = table_map.get(source, "orders_budver")
+
         with self.conn.cursor() as cur:
             cur.execute(f"SELECT id FROM {table} WHERE url = %s;", (url,))
             if not cur.fetchone():
                 cur.execute(f"""
                     INSERT INTO {table} (title, description, city, price, url)
                     VALUES (%s, %s, %s, %s, %s);
-                """, (title, description, city, price, url))
+                """, (
+                    title or "—",
+                    description or "—",
+                    city or "—",
+                    price or "—",
+                    url
+                ))
                 self.conn.commit()
 
+    # ✅ Оставляем для сумісності старий виклик:
     def save_order_rabotniki(self, title, description, city, price, url):
-        """Зберігає замовлення Rabotniki.ua"""
-        with self.conn.cursor() as cur:
-            cur.execute("SELECT id FROM orders_rabotniki WHERE url = %s;", (url,))
-            if not cur.fetchone():
-                cur.execute("""
-                    INSERT INTO orders_rabotniki (title, description, city, price, url)
-                    VALUES (%s, %s, %s, %s, %s);
-                """, (title, description, city, price, url))
-                self.conn.commit()
+        """Alias для Rabotniki.ua (сумісність зі старим кодом)"""
+        self.save_order(title, description, city, price, url, source="rabotniki")
 
     def check_exists(self, url: str, source="budver") -> bool:
-        """Проверяет, есть ли заказ с таким URL в указанной таблице"""
-        table = "orders_budver" if source == "budver" else "orders_rabotniki"
+        """Перевіряє, чи існує замовлення"""
+        table_map = {
+            "budver": "orders_budver",
+            "rabotniki": "orders_rabotniki",
+            "kabanchik": "orders_kabanchik"
+        }
+        table = table_map.get(source, "orders_budver")
+
         with self.conn.cursor() as cur:
             cur.execute(f"SELECT 1 FROM {table} WHERE url = %s;", (url,))
             return bool(cur.fetchone())
 
     def drop_table(self, table_name: str):
-        """Удаляет таблицу, если она существует"""
+        """Видаляє таблицю"""
         try:
             with self.conn.cursor() as cur:
                 cur.execute(f"DROP TABLE IF EXISTS {table_name} CASCADE;")
             self.conn.commit()
-            print(f"🗑️ Таблиця '{table_name}' успішно видалена.")
+            print(f"🗑️ Таблиця '{table_name}' видалена.")
         except Exception as e:
             print(f"❌ Помилка при видаленні таблиці '{table_name}': {e}")
-        finally:
-            if not self.conn.closed:
-                self.conn.close()

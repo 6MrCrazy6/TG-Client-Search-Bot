@@ -1,0 +1,333 @@
+[
+  {
+    "domain": ".kabanchik.ua",
+    "expiry": 1794394154,
+    "httpOnly": false,
+    "name": "helpcrunch.com-kabanchik-2-helpcrunch-device",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": true,
+    "value": "{\"id\":4910893,\"secret\":\"oJ6xDxS1ED9OKwPWiz1izwU5E1UE5E1jF1jgB7l8yJmcO/7nmLFEwIwkklg3mIhoJjUOuQrWPGS9I0L8/lw9jQ==\",\"sessions\":1}"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "expiry": 1794394155,
+    "httpOnly": false,
+    "name": "helpcrunch.com-kabanchik-2-user-id",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": true,
+    "value": "3817364"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "expiry": 1794394154,
+    "httpOnly": false,
+    "name": "device-source",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": true,
+    "value": "https://kabanchik.ua/ua/cabinet/dashboard/p/recommended"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "expiry": 1794394153,
+    "httpOnly": false,
+    "name": "_hjSessionUser_1751692",
+    "path": "/",
+    "sameSite": "None",
+    "secure": true,
+    "value": "eyJpZCI6ImY4NzFmNmNmLWNlZmItNWU0OC1iODg5LWZmMDZiZWFkNWZmMCIsImNyZWF0ZWQiOjE3NjI4NTgxMjQxMzcsImV4aXN0aW5nIjp0cnVlfQ=="
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "expiry": 1797418152,
+    "httpOnly": false,
+    "name": "_ga_F1ZFJ23Y3G",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "GS2.1.s1762858122$o1$g1$t1762858152$j30$l0$h0"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "httpOnly": false,
+    "name": "utm_content",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "(none)"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "expiry": 1770634153,
+    "httpOnly": false,
+    "name": "_fbp",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "fb.1.1762858123627.5299513825281538"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "expiry": 1770634152,
+    "httpOnly": false,
+    "name": "sbjs_first_add",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "fd%3D2025-11-11%2012%3A49%3A12%7C%7C%7Cep%3Dhttps%3A%2F%2Fkabanchik.ua%2Fua%2Fcabinet%2Fdashboard%2Fp%2Frecommended%7C%7C%7Crf%3Dhttps%3A%2F%2Fkabanchik.ua%2Fua%2Fauth%2Flogin"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "expiry": 1770634152,
+    "httpOnly": false,
+    "name": "sbjs_current_add",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "fd%3D2025-11-11%2012%3A49%3A12%7C%7C%7Cep%3Dhttps%3A%2F%2Fkabanchik.ua%2Fua%2Fcabinet%2Fdashboard%2Fp%2Frecommended%7C%7C%7Crf%3Dhttps%3A%2F%2Fkabanchik.ua%2Fua%2Fauth%2Flogin"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "expiry": 1794394125,
+    "httpOnly": false,
+    "name": "device-referrer",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": true,
+    "value": ""
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "expiry": 1770634152,
+    "httpOnly": false,
+    "name": "sbjs_migrations",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "1418474375998%3D1"
+  },
+  {
+    "domain": "kabanchik.ua",
+    "httpOnly": true,
+    "name": "session",
+    "path": "/",
+    "sameSite": "None",
+    "secure": true,
+    "value": "eyJjc3JmX3Rva2VuIjoiN2NlYTZjMTAwZjEzMWYxMjZiZTQ4ZTY5YmE2MDJjYWQ1MDdmOWNlYyJ9.aRMUqQ.bxh2j0mqXRCqYoV9Lt7zd_XSvnY"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "expiry": 1770634123,
+    "httpOnly": false,
+    "name": "_gcl_au",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "1.1.1339620112.1762858123.1424579002.1762858124.1762858131"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "expiry": 1762944552,
+    "httpOnly": false,
+    "name": "_gid",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "GA1.2.252679008.1762858124"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "expiry": 1762859924,
+    "httpOnly": false,
+    "name": "_hjSession_1751692",
+    "path": "/",
+    "sameSite": "None",
+    "secure": true,
+    "value": "eyJpZCI6IjUyYmMzOTgyLWEyNzktNGY1OS05OGEzLTUzOWJlNTA0ODcxMiIsImMiOjE3NjI4NTgxMjQxMzgsInMiOjAsInIiOjAsInNiIjowLCJzciI6MCwic2UiOjAsImZzIjoxLCJzcCI6MH0="
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "expiry": 1762861752,
+    "httpOnly": false,
+    "name": "serviceModal",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "undefined"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "expiry": 1794394151,
+    "httpOnly": true,
+    "name": "auth",
+    "path": "/",
+    "sameSite": "None",
+    "secure": true,
+    "value": "adc5c57b37a542af617c3375d4a3d421cea7fbfe"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "expiry": 1770634152,
+    "httpOnly": false,
+    "name": "sbjs_first",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "expiry": 1794394155,
+    "httpOnly": false,
+    "name": "helpcrunch.com-kabanchik-2-token-data",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": true,
+    "value": "{\"access_token\":\"pObUdWpUmLd6h81CPIwgD4rq7Fvuo3tJtp+sX9s14YAHtffn/UnJo8r0OjzQRjn1YMQ4FlvAWR8qiutAQzyEARsBmuUC1/ZWN6Kfp9BVyKoxI6Oi8ZimiDFGemWavSAR5vhJKnuze3GwPHPSAXLdkVHMF+iA1Y+H38L8pNUVdFCPWeVQVoIL/GUnuIbkclf9zjHyy1roPzaPZ6bEPnB0Pz/gcTdH7IYbPgtEOYLXC78a+KZDuZB7xhvy4SBJ78uTXFXnMvEwahdvqVd1J+tJTo1M/ko6Z17sVhyUjx8QnHaBtpfei0LbDpQGOa2ceVDNkW90NvI1qLRgWKauS8bR/tRulnP7Veqd+fDzToGLIrzI8vYdCtWXlSLitu7xXyiw0f/vZEc1cN13xvZOdt5rh07IpTfYpPmNWXM02UZBdnmEbOH/LL9/yZCZ8u/E7U4PIbelCWMUz9y2WYmJOM1ZK2tWgGwHuhaYzISY8S2M+PdCs2ZbAngb4HTZOwJzKQrNogFmyF8fJTPB/oYBt8fhTLn7gpeYEOpK+66hih3J/oq7RHoI/A4McjI06wriBK/Cc5vAwFunBkPwMpz/XsD67HsXlCcQ2wwMbfyEQnP6onL9lK6tVFrAHyHn9rFjPsZhrPjr8SW9PU+Ga6HqsHw9Ka96llRbBlHmyTzEyRgnNSpG6EZ/CMc0nLtRh72a6aBFTQYC+QXi3kNh09QiSlc7PyTZ4Tdc4BT0QALXNxBu+Q94MJz/drT3NA==\",\"refresh_token\":\"00mByof3GtMa/OQBGaF2J5TDaM5LQFoFMwTJgMo2uf4D6OEHnoAQYu6VKL1nCPBLpXcwwuMmk2IJNq5Sz2gC\",\"expires_in\":1762859835257}"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "expiry": 1762944553,
+    "httpOnly": false,
+    "name": "_clsk",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "1dz8qfn%5E1762858153801%5E2%5E1%5Ee.clarity.ms%2Fcollect"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "httpOnly": false,
+    "name": "gbraid",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "null"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "httpOnly": false,
+    "name": "wbraid",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "null"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "expiry": 1770634152,
+    "httpOnly": false,
+    "name": "sbjs_current",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "expiry": 1794394124,
+    "httpOnly": false,
+    "name": "_clck",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "1v8j1q%5E2%5Eg0x%5E0%5E2141"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "httpOnly": false,
+    "name": "utm_medium",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "(none)"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "expiry": 1770634152,
+    "httpOnly": false,
+    "name": "sbjs_udata",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Windows%20NT%2010.0%3B%20Win64%3B%20x64%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F142.0.0.0%20Safari%2F537.36"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "httpOnly": false,
+    "name": "utm_campaign",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "(none)"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "expiry": 1794394154,
+    "httpOnly": false,
+    "name": "helpcrunch.com-kabanchik-2-device-id",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": true,
+    "value": "4910893"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "httpOnly": false,
+    "name": "utm_term",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "(none)"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "expiry": 1762859952,
+    "httpOnly": false,
+    "name": "sbjs_session",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "pgs%3D1%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fkabanchik.ua%2Fua%2Fcabinet%2Fdashboard%2Fp%2Frecommended"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "expiry": 1762861724,
+    "httpOnly": false,
+    "name": "AMP_TOKEN",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "%24NOT_FOUND"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "httpOnly": false,
+    "name": "utm_source",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "direct"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "expiry": 1797418152,
+    "httpOnly": false,
+    "name": "_ga",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "GA1.1.1752859711.1762858123"
+  },
+  {
+    "domain": ".kabanchik.ua",
+    "httpOnly": false,
+    "name": "gclid",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "null"
+  }
+]
