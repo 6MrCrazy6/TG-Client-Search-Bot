@@ -12,11 +12,9 @@ cfg = Config()
 bot = Bot(token=cfg.BOT_TOKEN)
 dp = Dispatcher()
 
-# зависимости
 db = Database(cfg)
 service = OrderService(db)
 commands = CommandHandlers(service)
-
 
 def register_handlers():
     dp.message.register(commands.start, F.text == '/start')
@@ -31,8 +29,5 @@ async def main():
     print("🤖 Бот запущен!")
     await dp.start_polling(bot)
 
-
 if __name__ == "__main__":
-    #db.drop_table("orders_budver")
-    #db.drop_table("orders_rabotniki")
     asyncio.run(main())
