@@ -206,5 +206,3 @@ TG-Client-Search-Bot is a utility Telegram bot that helps to:
 - Export all collected orders to Excel
 - Quickly view database statistics
 - Clear all saved orders when needed
-
-Use the screenshot markers (`[SCREENSHOT_..._HERE]`) in this README to embed visual examples of how the bot behaves in Telegram.
