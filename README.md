@@ -15,14 +15,13 @@ The bot parses new tasks, filters duplicates, saves them into a PostgreSQL datab
 ### 🏁 `/start` — Welcome message  
 Shows a short introduction and explains what the bot does.
 
-**[SCREENSHOT_START_HERE]**
 
 ---
 
 ### ℹ️ `/help` — List of available commands  
 Displays a full list of bot commands with descriptions.
 
-**[SCREENSHOT_HELP_HERE]**
+**![Search command example](screnshorts/help_comand.png)**
 
 ---
 
@@ -40,7 +39,7 @@ Example:
 /search 15
 ```
 
-**[SCREENSHOT_SEARCH_HERE]**
+**![Search command example](screnshorts/search_command.png)**
 
 ---
 
@@ -49,7 +48,7 @@ Generates an `orders_export.xlsx` file with all saved orders and sends it to the
 
 - After sending, the temporary file is deleted from the filesystem.
 
-**[SCREENSHOT_EXPORT_HERE]**
+**![Screensorts export command](screnshorts/export_command.png)**
 
 ---
 
@@ -61,9 +60,6 @@ Drops all order tables used by the bot:
 - `orders_rabotniki`
 
 Use this carefully — all stored data will be removed.
-
-**[SCREENSHOT_CLEAR_ALL_HERE]**
-
 ---
 
 ### 📈 `/stats` — Database statistics  
@@ -74,7 +70,7 @@ Shows the current number of records in each table:
 - Total orders from Rabotniki.ua
 - Overall total number of saved orders
 
-**[SCREENSHOT_STATS_HERE]**
+**![Search command example](screnshorts/stats_command.png)**
 
 ---
 
@@ -135,9 +131,9 @@ Keys/data_keys.env
 Example configuration:
 
 ```env
+DATABASE_PUBLIC_URL=YOUR_PATH_POSTGRESS
 BOT_TOKEN=1234567890:ABCDEF...
 ADMIN_ID=123456789
-DATABASE_PUBLIC_URL=
 
 KABANCHIK_LOGIN=email@gmail.com
 KABANCHIK_PASSWORD=your_password
@@ -210,3 +206,5 @@ TG-Client-Search-Bot is a utility Telegram bot that helps to:
 - Export all collected orders to Excel
 - Quickly view database statistics
 - Clear all saved orders when needed
+
+Use the screenshot markers (`[SCREENSHOT_..._HERE]`) in this README to embed visual examples of how the bot behaves in Telegram.
