@@ -115,7 +115,7 @@ TG-Client-Search-Bot
 - **aiogram** — Telegram Bot API framework
 - **Selenium** — for scraping job listings from websites
 - **PostgreSQL** — for persistent storage of orders
-- **openpyxl / pandas** (or similar) — for Excel export
+- **openpyxl** — for Excel export
 - **asyncio** — asynchronous bot and parsing logic
 
 ---
